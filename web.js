@@ -3,7 +3,8 @@ var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
-var filePath = '/Users/aaron/Dropbox/coding/startupengineering/hw3/bitstarter/index.html';
+//var filePath = '/Users/aaron/Dropbox/coding/startupengineering/hw3/bitstarter/index.html';
+var filePath = 'index.html';
 
 app.get('/', function(request, response) {
   response.send(fs.readFileSync(filePath).toString('utf8'));
