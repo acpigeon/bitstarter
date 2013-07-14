@@ -55,44 +55,8 @@ var checkHtmlFile = function(htmlfile, checksfile) {
 	return out;
 };
 
-/*
-var checkUrlFile = function(url, checksfile) {
-	var html = rest.get(url).on('complete', function(data, response) {
-		return data;
-	});
-	$ = cheerio.load(html);
-	var checks = loadChecks(checksfile).sort();
-	var out = {};
-	for (var ii in checks) {
-		var present = $(checks[ii]).length > 0;
-		out[checks[ii]] = present;
-	}
-	return out;
-};
-*/
-
-/*
-var checkUrlFile = function(url, checksfile) {
-	var output = rest.get(url).on('complete', function(data, response) {
-		//console.log(data) // Valid HTML
-		$ = cheerio.load(data);
-		var checks = loadChecks(checksfile).sort();
-		var out = {};
-		for (var ii in checks) {
-			var present = $(checks[ii]).length > 0;
-			out[checks[ii]] = present;
-		}
-		//console.log(out) // THIS IS CORRECT!!!!
-		return out;
-	});
-	console.log(output) // THIS IS INCORRECT!!!!
-	return output;
-};
-*/
-
 var checkUrlFile = function(url, checksfile) {
 	rest.get(url).on('complete', function(data, response) {
-		//console.log(data) // Valid HTML
 		$ = cheerio.load(data);
 		var checks = loadChecks(checksfile).sort();
 		var out = {};
@@ -100,7 +64,7 @@ var checkUrlFile = function(url, checksfile) {
 			var present = $(checks[ii]).length > 0;
 			out[checks[ii]] = present;
 		}
-		console.log(out) // THIS IS CORRECT!!!!
+		console.log(out)
 	});
 };
 
